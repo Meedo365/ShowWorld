@@ -1,0 +1,34 @@
+const express = require('express');
+const app = express.Router();
+
+require('./endpoints/term')(app);
+require('./endpoints/banner')(app);
+require('./endpoints/newsletter')(app);
+require('./endpoints/siteSetting')(app);
+require('./endpoints/about')(app);
+require('./endpoints/admin')(app);
+require('./endpoints/booking')(app);
+require('./endpoints/bookinghistory')(app);
+require('./endpoints/cinema')(app);
+require('./endpoints/class')(app);
+require('./endpoints/contact')(app);
+require('./endpoints/counter')(app);
+require('./endpoints/location')(app);
+require('./endpoints/logincounter')(app);
+require('./endpoints/loginwebadmin')(app);
+require('./endpoints/movie')(app);
+require('./endpoints/movieschedule')(app);
+require('./endpoints/news')(app);
+require('./endpoints/revenue')(app);
+require('./endpoints/screen')(app);
+require('./endpoints/socialmedia')(app);
+require('./endpoints/theater')(app);
+require('./endpoints/upcoming')(app);
+require('./endpoints/user')(app);
+require('./endpoints/webadmin')(app);
+require('./endpoints/ticketbooking')(app);
+require('./endpoints/time')(app);
+require('./endpoints/userbooked')(app);
+// require('./endpoints/mainsite')(app);
+
+module.exports = app;

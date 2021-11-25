@@ -35,7 +35,7 @@ let routes = (app) => {
     app.get('/banner', async (req, res) => {
         try {
             let banner = await Banner.find();
-            res.json(banner)
+          await res.json(banner)
         }
         catch (err) {
             res.status(500).send(err)

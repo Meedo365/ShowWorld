@@ -11,6 +11,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single('image');
 
 let routes = (app) => {
+	app.all('/movies', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 	app.post('/movie', async (req, res) => {
 		upload(req, res, async (err) => {
 			if (err) {

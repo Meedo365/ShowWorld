@@ -2,8 +2,16 @@ const Account = require('../../models/user');
 
 let routes = (app) => {
 	
-
-
+app.all('/login', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
+app.all('/logout/:id', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 		
 // login a user
 app.post("/login",async(req,res)=>{

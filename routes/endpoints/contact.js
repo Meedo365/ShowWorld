@@ -1,7 +1,11 @@
 const Contact = require('../../models/contact');
 
 let routes = (app) => {
-
+app.all('/contacts', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 
 	app.post("/contacts", async (req, res) => {
 		try {

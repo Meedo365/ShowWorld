@@ -16,6 +16,11 @@ app.all('/movieschedule/:id', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
   });
+app.all('/movieschedule-one/:id', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 	app.post("/movieschedule", async (req, res) => {
 		try {
 			// if (req.body == null || " ") return res.json({ status: "error", error: "Pls fill out the required inputs" });

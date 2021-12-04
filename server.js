@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+// const cors = require('cors');
 // const multer = require('multer');
 const app = express();
 const routes = require('./routes')
@@ -21,7 +21,7 @@ mongoose.connection.on('error', (err) => console.log(err));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
 app.use(routes);
 
 app.use('/uploads', express.static('uploads'));

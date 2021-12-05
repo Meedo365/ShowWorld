@@ -1,6 +1,11 @@
 let Terms = require("../../models/terms")
 
 let routes = (app) => {
+    app.all('/terms-and-conditions', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
     app.post('/terms-and-conditions', async (req, res) => {
         try {
             let newterms = new Terms(req.body);

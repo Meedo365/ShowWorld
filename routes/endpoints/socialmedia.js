@@ -1,7 +1,11 @@
 const Socialmedia = require('../../models/socialmedia');
 
 let routes = (app) => {
-
+app.all('/socialmedias', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 
 	app.post("/socialmedias", async (req, res) => {
 		try {

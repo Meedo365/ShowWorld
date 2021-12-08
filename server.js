@@ -7,8 +7,6 @@ const routes = require('./routes')
 // const PORT = 5100;
 const port = process.env.PORT || 3000;
 const CONNECTION_STRING = "mongodb+srv://showworld100:Showworld100@showworld.0rkoi.mongodb.net/ShowWorld?retryWrites=true&w=majority";
-// const CONNECTION_STRING = "mongodb://localhost:27017/medium";
-// const CONNECTION_STRING = "mongodb+srv://showworld100:Showworld100@showworld.0rkoi.mongodb.net/test?authSource=admin&replicaSet=atlas-ieb8b5-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 const path = require('path');
 
 mongoose.connect(CONNECTION_STRING, {
@@ -23,6 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
 app.use(routes);
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});
 
 app.use('/uploads', express.static('uploads'));
 app.use(express.static(path.join(__dirname, 'public')));

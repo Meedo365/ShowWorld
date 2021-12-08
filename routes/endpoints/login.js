@@ -15,7 +15,7 @@ app.all('/logout/:id', function(req, res, next) {
 		
 // login a user
 
-app.post('/', function(req, res, next) {
+app.post('/login', function(req, res, next) {
     // Handle the post for this route
 	app.post("/login",async(req,res)=> {
 	try{

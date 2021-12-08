@@ -14,11 +14,12 @@ app.all('/logout/:id', function(req, res, next) {
   });
 		
 // login a user
-app.post('/', function(req, res, next) {
-    // Handle the post for this route
-  })	
+	
 	
 app.post("/login",async(req,res,next)=>{
+	res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
 	try{
 		let { email, passwd} = req.body;
 		let account = await Account.findOne({ email, passwd });

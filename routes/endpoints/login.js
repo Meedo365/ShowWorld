@@ -14,7 +14,11 @@ app.all('/logout/:id', function(req, res, next) {
   });
 		
 // login a user
-app.post("/login",async(req,res)=>{
+app.post('/', function(req, res, next) {
+    // Handle the post for this route
+  })	
+	
+app.post("/login",async(req,res,next)=>{
 	try{
 		let { email, passwd} = req.body;
 		let account = await Account.findOne({ email, passwd });

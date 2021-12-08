@@ -4,6 +4,7 @@ let routes = (app) => {
 	
 app.all('/login', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Methods", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
   });
@@ -20,9 +21,10 @@ app.all('/logout/:id', function(req, res, next) {
 	
 app.post("/login",async(req,res)=> {
 	try{
-		let { email, passwd} = req.body;
-		req.header("Access-Control-Allow-Origin", "*");
-    		req.header("Access-Control-Allow-Headers", "X-Requested-With");
+// 		let { email, passwd} = req.body;
+// 		res.header("Access-Control-Allow-Origin", "*");
+// 		res.header("Access-Control-Allow-Methods", "*");
+//     		req.header("Access-Control-Allow-Headers", "X-Requested-With");
 		let account = await Account.findOne({ email, passwd });
 		if (!account) return res.json({ status: "error", error: "Invalid username or password" });
 			account.active= "true"

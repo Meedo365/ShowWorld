@@ -21,12 +21,14 @@ app.all('/logout/:id', function(req, res, next) {
 app.post("/login",async(req,res)=> {
 	try{
 		let { email, passwd} = req.body;
+		req.header("Access-Control-Allow-Origin", "*");
+    		req.header("Access-Control-Allow-Headers", "X-Requested-With");
 		let account = await Account.findOne({ email, passwd });
 		if (!account) return res.json({ status: "error", error: "Invalid username or password" });
 			account.active= "true"
-		await account.save();
-		res.header("Access-Control-Allow-Origin", "*");
-    		res.header("Access-Control-Allow-Headers", "X-Requested-With");
+// 		await account.save();
+// 		res.header("Access-Control-Allow-Origin", "*");
+//     		res.header("Access-Control-Allow-Headers", "X-Requested-With");
 		res.json({ status: "ok", data: account });
 
 }

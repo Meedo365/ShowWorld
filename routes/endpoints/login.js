@@ -12,12 +12,13 @@ app.all('/logout/:id', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
   });
+  app.post('/login', function(req, res, next) {
+    // Handle the post for this route
+  })
 		
 // login a user
-
-app.post('/login', function(req, res, next) {
-    // Handle the post for this route
-	app.post("/login",async(req,res)=> {
+	
+app.post("/login",async(req,res)=> {
 	try{
 		let { email, passwd} = req.body;
 		let account = await Account.findOne({ email, passwd });
@@ -32,23 +33,6 @@ app.post('/login', function(req, res, next) {
 	}
 	// res.json({status:"ok"})
 });
-  })
-	
-// app.post("/login",async(req,res)=> {
-// 	try{
-// 		let { email, passwd} = req.body;
-// 		let account = await Account.findOne({ email, passwd });
-// 		if (!account) return res.json({ status: "error", error: "Invalid username or password" });
-// 			account.active= "true"
-// 		await account.save();
-// 		res.json({ status: "ok", data: account });
-
-// }
-// 	catch(err){
-// 		res.status(500).send(err);
-// 	}
-// 	// res.json({status:"ok"})
-// });
 // login a user
 app.post("/user_login",async(req,res)=>{
 	try{

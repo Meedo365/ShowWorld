@@ -17,9 +17,9 @@ app.all('/logout/:id', function(req, res, next) {
 	
 	
 app.post("/login",function(req,res,next) {
-	res.header("Access-Control-Allow-Origin", "*");
-   	res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    	next()
+// 	res.header("Access-Control-Allow-Origin", "*");
+//    	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     	next()
 	try{
 		let { email, passwd} = req.body;
 		let account = await Account.findOne({ email, passwd });

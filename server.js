@@ -6,7 +6,8 @@ const app = express();
 const routes = require('./routes')
 // const PORT = 5100;
 const port = process.env.PORT || 3000;
-const CONNECTION_STRING = "mongodb+srv://showworld100:Showworld100@showworld.0rkoi.mongodb.net/ShowWorld?retryWrites=true&w=majority";
+// const CONNECTION_STRING = "mongodb+srv://showworld100:Showworld100@showworld.0rkoi.mongodb.net/ShowWorld?retryWrites=true&w=majority";
+const CONNECTION_STRING = "mongodb+srv://showworld100:*****@showworld.0rkoi.mongodb.net/ShowWorld";
 const path = require('path');
 
 mongoose.connect(CONNECTION_STRING, {

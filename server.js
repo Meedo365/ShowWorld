@@ -8,7 +8,7 @@ const routes = require('./routes')
 const port = process.env.PORT || 3000;
 
 const path = require('path');
-const CONNECTION_STRING = "mongodb+srv://showworld100:*****@showworld.0rkoi.mongodb.net/ShowWorld?authSource=admin&replicaSet=atlas-ieb8b5-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true";
+const CONNECTION_STRING = "mongodb+srv://showworld100:Showworld100@showworld.0rkoi.mongodb.net/ShowWorld?authSource=admin&replicaSet=atlas-ieb8b5-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true";
 mongoose.connect(CONNECTION_STRING, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
